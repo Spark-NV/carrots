@@ -18,6 +18,7 @@ interface GitHubRelease {
   tag_name: string;
   prerelease: boolean;
   published_at: string;
+  created_at: string;
   assets: GitHubAsset[];
 }
 
@@ -142,7 +143,7 @@ function createAssetData(
     name: release.name,
     notes: release.body,
     version: release.tag_name,
-    date: release.published_at,
+    date: release.created_at,
     url: asset.browser_download_url,
     api_url: asset.url,
     content_type: asset.content_type,

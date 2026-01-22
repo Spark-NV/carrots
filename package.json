@@ -7,34 +7,32 @@
   "type": "module",
   "main": "lib/index.ts",
   "scripts": {
-    "preview": "nodemon --watch lib --ext ts --exec vercel dev",
+    "dev": "tsx watch server.ts",
+    "start": "tsx server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "prettier --config .prettierrc.json -c ./**/*.ts && eslint --config .eslintrc.json ./**/*.ts && tsc --noEmit",
     "format": "prettier --config .prettierrc.json -w ./**/*.ts"
   },
   "dependencies": {
-    "date-fns": "^4.1.0",
-    "dotenv": "^16.4.7",
-    "find-my-way": "^9.1.0",
+    "dotenv": "^17.2.3",
+    "find-my-way": "^9.4.0",
     "react": "^19",
     "react-dom": "^19",
-    "semver": "^7.7.1"
+    "semver": "^7.7.3"
   },
   "devDependencies": {
-    "@types/node": "^22.13.1",
+    "@types/node": "^25.0.10",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/semver": "^7.5.8",
-    "@typescript-eslint/eslint-plugin": "^8.23.0",
-    "@typescript-eslint/parser": "^8.23.0",
-    "async-listen": "^3.0.1",
-    "cross-env": "^7.0.3",
+    "@types/semver": "^7.7.1",
+    "@typescript-eslint/eslint-plugin": "^8.53.1",
+    "@typescript-eslint/parser": "^8.53.1",
+    "async-listen": "^3.1.0",
     "eslint": "^9",
-    "nodemon": "^3.1.9",
-    "prettier": "^3.4.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.5"
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }

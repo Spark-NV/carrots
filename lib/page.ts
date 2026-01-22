@@ -291,7 +291,7 @@ function VersionListTable({
                 width: "40%",
               },
             },
-            [o("span", { key: "text" }, "Release Date")],
+            [o("span", { key: "text" }, "Date")],
           ),
         ]),
         ...versions.map(([version, details], rowIndex, array) =>
