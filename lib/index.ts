@@ -223,7 +223,7 @@ export async function carrots(config: Configuration) {
       res.end();
       return;
     }
-    const isVersion = semver.valid(params.version);
+    const isVersion = semver.coerce(params.version);
     if (!isVersion) {
       res.statusCode = 400;
       res.statusMessage = "Invalid version";
@@ -242,7 +242,7 @@ export async function carrots(config: Configuration) {
 
     // Upgrade or Downgrade the client version to match the latest release on the server
     // Downgrade allows updates to be pulled from the server
-    const isLatestVersion = semver.eq(params.version, asset.version);
+    const isLatestVersion = semver.eq(isVersion.toString(), asset.version);
     if (isLatestVersion) {
       res.statusCode = 204;
       res.end();

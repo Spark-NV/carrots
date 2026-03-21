@@ -167,7 +167,9 @@ async function fetchAllReleases(
   // Process releases in reverse chronological order
   for (let i = releases.length - 1; i >= 0; i--) {
     const release = releases[i];
-    if (!semver.valid(release.tag_name)) continue;
+    const coercedTag = semver.coerce(release.tag_name);
+    if (!coercedTag) continue;
+    release.tag_name = coercedTag.toString();
 
     // Fetch RELEASES content in parallel
     const releasesAsset = release.assets.find(

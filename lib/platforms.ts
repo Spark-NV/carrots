@@ -20,6 +20,10 @@ export enum PlatformIdentifier {
   SNAP_ARM64 = "snap-arm64",
   SNAP_ARM = "snap-arm",
   SNAP_X64 = "snap-x64",
+  ANDROID_ARM64 = "android-arm64",
+  ANDROID_ARM = "android-arm",
+  ANDROID_X64 = "android-x64",
+  ANDROID = "android",
 }
 
 // Platform information mapping
@@ -27,8 +31,8 @@ export enum PlatformIdentifier {
 export const PLATFORMS: Record<
   PlatformIdentifier,
   {
-    os: NodeJS.Platform;
-    arch: NodeJS.Architecture;
+    os: string;
+    arch: string;
     ext: string;
     aliases: string[];
     filePatterns: RegExp[];
@@ -234,5 +238,33 @@ export const PLATFORMS: Record<
       /.*armv7l.*\.snap$/,
       /.*armv7hl.*\.snap$/,
     ],
+  },
+  [PlatformIdentifier.ANDROID_ARM64]: {
+    os: "android",
+    arch: "arm64",
+    ext: "apk",
+    aliases: ["apk-arm64"],
+    filePatterns: [/.*arm64.*\.apk$/i, /.*aarch64.*\.apk$/i],
+  },
+  [PlatformIdentifier.ANDROID_ARM]: {
+    os: "android",
+    arch: "arm",
+    ext: "apk",
+    aliases: ["apk-arm", "apk-armhf"],
+    filePatterns: [/.*armv7.*\.apk$/i, /.*armhf.*\.apk$/i],
+  },
+  [PlatformIdentifier.ANDROID_X64]: {
+    os: "android",
+    arch: "x64",
+    ext: "apk",
+    aliases: ["apk-x64", "apk-x86_64"],
+    filePatterns: [/.*x86_64.*\.apk$/i, /.*x64.*\.apk$/i],
+  },
+  [PlatformIdentifier.ANDROID]: {
+    os: "android",
+    arch: "x64",
+    ext: "apk",
+    aliases: ["apk", "android"],
+    filePatterns: [/.*\.apk$/i],
   },
 };
